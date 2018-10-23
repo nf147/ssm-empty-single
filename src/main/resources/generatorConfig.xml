@@ -28,8 +28,9 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="${basePackage}.mapper"  targetProject="src\main\java">
         </javaClientGenerator>
 
-        <table tableName="student">
+        <table tableName="%">
             <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
         </table>
     </context>
 </generatorConfiguration>
