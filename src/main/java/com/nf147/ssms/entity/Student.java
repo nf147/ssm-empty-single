@@ -1,4 +1,4 @@
-package com.nf147.sim.entity;
+package com.nf147.ssms.entity;
 
 public class Student {
     private Integer id;
@@ -6,6 +6,8 @@ public class Student {
     private String name;
 
     private String weixin;
+
+    private String email;
 
     public Integer getId() {
         return id;
@@ -29,5 +31,13 @@ public class Student {
 
     public void setWeixin(String weixin) {
         this.weixin = weixin == null ? null : weixin.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

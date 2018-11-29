@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nf147.sim.mapper.StudentMapper">
-  <resultMap id="BaseResultMap" type="com.nf147.sim.entity.Student">
+<mapper namespace="com.nf147.ssms.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.nf147.ssms.entity.Student">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="weixin" jdbcType="VARCHAR" property="weixin" />
@@ -11,14 +11,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-  <insert id="insert" parameterType="com.nf147.sim.entity.Student">
+  <insert id="insert" parameterType="com.nf147.ssms.entity.Student">
     insert into student (id, name, weixin
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{weixin,jdbcType=VARCHAR}
       )
   </insert>
 
-  <update id="updateByPrimaryKey" parameterType="com.nf147.sim.entity.Student">
+  <update id="updateByPrimaryKey" parameterType="com.nf147.ssms.entity.Student">
     update student
     set name = #{name,jdbcType=VARCHAR},
       weixin = #{weixin,jdbcType=VARCHAR}

@@ -1,8 +1,8 @@
-package com.nf147.sim.controller;
+package com.nf147.ssms.controller;
 
 
-import com.nf147.sim.mapper.StudentMapper;
-import com.nf147.sim.entity.Student;
+import com.nf147.ssms.mapper.StudentMapper;
+import com.nf147.ssms.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/stu")
 public class StudentController {
 
     @Autowired
     StudentMapper studentMapper;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String home (Model model) {
         List<Student> students = studentMapper.selectAll();
         model.addAttribute("students", students);
