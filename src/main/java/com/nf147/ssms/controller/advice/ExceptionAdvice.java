@@ -18,7 +18,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.URI_TOO_LONG)
     @ResponseBody
-    public Object handlerDbException3 (Exception ex) {
+    public Object handlerDbException (Exception ex) {
         return ex;
     }
 }
