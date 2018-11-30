@@ -38,6 +38,11 @@
                 <bean class="com.nf147.ssms.databinder.MyStringToDateConverter" />
             </set>
         </property>
+        <property name="formatters">
+            <set>
+                <bean class="com.nf147.ssms.demo_formatter.PersonFormatterAnnotationFactory" />
+            </set>
+        </property>
     </bean>
 
     <!--引入其他的配置-->
