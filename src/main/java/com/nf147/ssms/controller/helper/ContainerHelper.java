@@ -28,10 +28,10 @@ public class ContainerHelper {
         while (sessNames.hasMoreElements()) sessAttrs.add(sessNames.nextElement());
 
         return new HashMap<String, Object>() {{
-            put("子容器", context.getBeanDefinitionNames());
-            put("父容器", Objects.requireNonNull(context.getParent()).getBeanDefinitionNames());
-            put("request", reqAttrs);
-            put("session", sessAttrs);
+            put("子容器", Arrays.stream(context.getBeanDefinitionNames()).sorted().toArray(String[]::new));
+            put("父容器", Arrays.stream(Objects.requireNonNull(context.getParent()).getBeanDefinitionNames()).sorted().toArray(String[]::new));
+//            put("request", reqAttrs);
+//            put("session", sessAttrs);
         }};
     }
 

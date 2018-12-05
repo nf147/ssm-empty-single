@@ -1,6 +1,6 @@
 package com.nf147.ssms.exception;
 
-public class ConnException extends Exception {
+public class ConnException extends RuntimeException {
     public ConnException() {
 
     }

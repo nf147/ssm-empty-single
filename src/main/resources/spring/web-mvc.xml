@@ -11,16 +11,23 @@
     <!--启用 mvc 的常用注解-->
     <mvc:annotation-driven validator="myValidator" conversion-service="conversionService">
         <!--@ResponseBody 的 UTF-8 编码-->
-        <mvc:message-converters>
+        <mvc:message-converters register-defaults="true">
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="UTF-8"/>
+                <constructor-arg value="GBK"/>
             </bean>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="objectMapper">
                     <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
                         <property name="failOnEmptyBeans" value="false"/>
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg value="yyyy 年 MM 月 dd 日 " />
+                            </bean>
+                        </property>
                     </bean>
                 </property>
+                <property name="prettyPrint" value="true" />
+                <property name="jsonPrefix" value="data: " />
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
