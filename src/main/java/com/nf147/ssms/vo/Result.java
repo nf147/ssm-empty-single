@@ -2,74 +2,107 @@ package com.nf147.ssms.vo;
 
 import com.github.pagehelper.Page;
 
-public class Result<T> {
+import java.util.List;
+
+public class Result<T>  {
     private int code;
     private String errMsg;
     private T data;
-
     private Page<T> pager;
-    private Throwable error;
 
-    public Result(int i, T student, Page<T> pager) {
-        this.code = i;
-        this.data = student;
-        this.pager = pager;
-    }
-
-    public Result(int i, String message) {
-        this.code = i;
-        this.errMsg = message;
-    }
-
-    public Result(int i, Throwable e) {
-        this.code = i;
-        this.error = e;
-    }
-
-    public Result () {}
+    private List<ErrorDetail> errors;
+    private long dataTimestamp;
 
     public int getCode() {
         return code;
     }
 
-    public Result<T> setCode(int code) {
+    public void setCode(int code) {
         this.code = code;
-        return this;
     }
 
     public String getErrMsg() {
         return errMsg;
     }
 
-    public Result<T> setErrMsg(String errMsg) {
+    public void setErrMsg(String errMsg) {
         this.errMsg = errMsg;
-        return this;
     }
 
     public T getData() {
         return data;
     }
 
-    public Result<T> setData(T data) {
+    public void setData(T data) {
         this.data = data;
-        return this;
     }
 
     public Page<T> getPager() {
         return pager;
     }
 
-    public Result<T> setPager(Page<T> pager) {
+    public void setPager(Page<T> pager) {
         this.pager = pager;
-        return this;
     }
 
-    public Throwable getError() {
-        return error;
+    public List<ErrorDetail> getErrors() {
+        return errors;
     }
 
-    public Result<T> setError(Throwable error) {
-        this.error = error;
-        return this;
+    public void setErrors(List<ErrorDetail> errors) {
+        this.errors = errors;
+    }
+
+    public long getDataTimestamp() {
+        return dataTimestamp;
+    }
+
+    public void setDataTimestamp(long dataTimestamp) {
+        this.dataTimestamp = dataTimestamp;
     }
 }
+
+class ErrorDetail {
+    private String type;
+    private String message;
+    private int code;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+}
+
+/*result = new Result();
+errors = new ArrayList();
+        errors.add(new ErrorDetail())
+        errors.add(new ErrorDetail())
+        errors.add(new ErrorDetail())
+result.setErrors(errors)
+result.seterrMsg(_)
+result.setStatusCode();
+
+        Result.status(444).errMsg("kkksdfksjf")
+                .addError("mis", "ksfjksdjfks")
+                .addError("ksdjfksdjf");
+
+        Result.data("ksjdfksjdfks");*/

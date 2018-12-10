@@ -4,6 +4,7 @@ package com.nf147.ssms.controller;
 import com.nf147.ssms.entity.Student;
 import com.nf147.ssms.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,4 +25,10 @@ public class StudentController {
         model.addAttribute("students", students);
         return "home";
     }
+
+   /* @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity homeDemo (Model model) {
+        ResponseEntity.BodyBuilder status = ResponseEntity.status(200);
+        return ResponseEntity.status(200);
+    }*/
 }
