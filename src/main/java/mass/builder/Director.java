@@ -7,5 +7,6 @@ public class Director {
         bh.buildHand();
         bh.buildHead();
         return bh.createHuman();
+
     }
 }

@@ -119,6 +119,7 @@ public class ResultVo<T> {
 
     public static class DefaultBuilder<E> implements ResultBuilder<E> {
         private ResultVo<E> resultVo;
+        //private final Object status;
 
         public DefaultBuilder() {
             this.resultVo = new ResultVo<E>();
@@ -157,11 +158,13 @@ public class ResultVo<T> {
 
         @Override
         public ResultVo<E> err(int status) {
-            return null;
+            return resultVo;
         }
 
         @Override
         public ResultVo<E> err(int status, String emsg) {
+            this.status(status);
+            resultVo.setErrMsg(emsg);
             return null;
         }
     }

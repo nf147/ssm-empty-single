@@ -1,6 +1,7 @@
 package mass.resultDemo;
 
 import com.github.pagehelper.Page;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 
@@ -25,16 +26,19 @@ public class TestResult {
 
         ResultVo resultVo_2 = ResultVo.ok("带分页信息返回", new Page());
 
-        ResultVo resultVo_3 = ResultVo.status(201).data("正常返回");
+        ResultVo resultVo1 = ResultVo.status(201).data("正常返回");
 
         ResultVo resultVo_4 = ResultVo.err(400, "数据错误");
 
-        ResultVo resultVo_5 = ResultVo.status(400).err("数据错误");
+/*        ResultVo resultVo_5 = ResultVo.status(400).err("数据错误");
 
         ResultVo resultVo_6 = ResultVo
                 .addError(new ErrorDetail("RunTimeException",555))
                 .addError("RunTimeException",500)
                 .addError(new ErrorDetail())
-                .err(411);
+                .err(411);*/
+        ResultVo.status(200);
+        ResultVo.status(300).status(4545);
+        ResponseEntity.BodyBuilder status = ResponseEntity.status(404);
     }
 }
