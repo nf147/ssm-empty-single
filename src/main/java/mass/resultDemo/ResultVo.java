@@ -14,6 +14,33 @@ public class ResultVo<T> {
     private List<ErrorDetail> errors;
     private long dataTimestamp;
 
+    // director
+    public static ResultBuilder status(int code) {
+        ResultBuilder builder = new DefaultBuilder<>();
+        builder.status(code);
+        return builder;
+    }
+
+    public static ResultBuilder addError(String type, String message) {
+        ResultBuilder builder = new DefaultBuilder<>();
+        builder.addError(type, message);
+        return builder;
+    }
+
+    public static <D> ResultVo ok(D data) {
+        ResultBuilder<D> builder = new DefaultBuilder<>();
+        return builder.data(data);
+    }
+
+    public static <D> ResultVo ok(D data, Page page) {
+        ResultBuilder<D> builder = new DefaultBuilder<>();
+        return builder.data(data);
+    }
+
+    public static ResultVo err(int code, String errMsg) {
+        return null;
+    }
+
     public int getCode() {
         return code;
     }
@@ -60,34 +87,6 @@ public class ResultVo<T> {
 
     public void setDataTimestamp(long dataTimestamp) {
         this.dataTimestamp = dataTimestamp;
-    }
-
-
-    // director
-    public static ResultBuilder status(int code) {
-        ResultBuilder builder = new DefaultBuilder<>();
-        builder.status(code);
-        return builder;
-    }
-
-    public static ResultBuilder addError(String type, String message) {
-        ResultBuilder builder = new DefaultBuilder<>();
-        builder.addError(type, message);
-        return builder;
-    }
-
-    public static <D> ResultVo ok(D data) {
-        ResultBuilder<D> builder = new DefaultBuilder<>();
-        return builder.data(data);
-    }
-
-    public static <D> ResultVo ok(D data, Page page) {
-        ResultBuilder<D> builder = new DefaultBuilder<>();
-        return builder.data(data);
-    }
-
-    public static ResultVo err(int code, String errMsg) {
-        return null;
     }
 
     @Override

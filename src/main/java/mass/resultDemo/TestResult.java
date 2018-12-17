@@ -22,8 +22,6 @@ public class TestResult {
         resultVo.setErrors(list);
 
 
-
-
         ResultVo resultVo_2 = ResultVo.ok("带分页信息返回", new Page());
 
         ResultVo resultVo1 = ResultVo.status(201).data("正常返回");

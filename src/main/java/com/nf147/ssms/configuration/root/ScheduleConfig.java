@@ -1,4 +1,4 @@
-package com.nf147.ssms.configuration.misc;
+package com.nf147.ssms.configuration.root;
 
 import org.springframework.context.annotation.Configuration;
 

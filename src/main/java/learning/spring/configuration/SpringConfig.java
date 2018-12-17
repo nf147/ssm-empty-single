@@ -5,7 +5,10 @@ import learning.spring.BookDAO;
 import learning.spring.BookService;
 import learning.spring.BookService2Impl;
 import learning.spring.BookServiceImpl;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //@ComponentScan(basePackages = "learning.components")
@@ -24,7 +27,7 @@ public class SpringConfig {
     }
 
     @Bean
-    public BookDAO bookDAO () {
+    public BookDAO bookDAO() {
         return new BookDAO();
     }
 }

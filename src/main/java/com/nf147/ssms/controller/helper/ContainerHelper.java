@@ -37,7 +37,7 @@ public class ContainerHelper {
 
     @GetMapping("/session/{key}:{value}")
     @ResponseBody
-    public ArrayList<String> setSession (@PathVariable String key, @PathVariable String value, HttpSession session) {
+    public ArrayList<String> setSession(@PathVariable String key, @PathVariable String value, HttpSession session) {
         session.setAttribute(key, value);
 
         ArrayList<String> sessAttrs = new ArrayList<>();

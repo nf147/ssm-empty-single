@@ -5,7 +5,7 @@ public class BookServiceImpl implements BookService {
     private BookDAO bookDAO;
 
     @Override
-    public void sayHello () {
+    public void sayHello() {
         // 这个类要解决问题，要解决的是企业级的问题
         // 所以，按理来说，他会很大
         // 上千行，上万行都有可能

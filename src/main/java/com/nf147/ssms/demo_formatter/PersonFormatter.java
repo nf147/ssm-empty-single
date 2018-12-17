@@ -10,39 +10,6 @@ import java.util.Locale;
 import java.util.Map;
 
 public class PersonFormatter implements Formatter<Person> {
-    private String style;
-
-    @Override
-    public Person parse(String text, Locale locale) throws ParseException {
-        // "370784191111111111"
-        return new Person(parseProvinceFromId(text), parseBirthFromId(text), parseGenderFromId(text));
-    }
-
-    @Override
-    public String print(Person object, Locale locale) {
-        return null;
-    }
-
-    private String parseProvinceFromId(String id) {
-        return provinceMapping.get(id.substring(0, 2));
-    }
-
-    private Date parseBirthFromId(String id) throws ParseException {
-        return new SimpleDateFormat("yyyyMMdd").parse(id.substring(6, 14));
-    }
-
-    private String parseGenderFromId(String id) {
-        // 17: 偶数 女，奇数 男
-        if (style != null && style.equals("en")) {
-            return id.charAt(16) % 2 == 0 ? "female" : "male";
-        }
-        return id.charAt(16) % 2 == 0 ? "女" : "男";
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
     private static Map<String, String> provinceMapping = new HashMap<String, String>() {{
         this.put("11", "北京市");
         this.put("12", "天津市");
@@ -79,4 +46,36 @@ public class PersonFormatter implements Formatter<Person> {
         this.put("81", "香港特别行政区");
         this.put("82", "澳门特别行政区");
     }};
+    private String style;
+
+    @Override
+    public Person parse(String text, Locale locale) throws ParseException {
+        // "370784191111111111"
+        return new Person(parseProvinceFromId(text), parseBirthFromId(text), parseGenderFromId(text));
+    }
+
+    @Override
+    public String print(Person object, Locale locale) {
+        return null;
+    }
+
+    private String parseProvinceFromId(String id) {
+        return provinceMapping.get(id.substring(0, 2));
+    }
+
+    private Date parseBirthFromId(String id) throws ParseException {
+        return new SimpleDateFormat("yyyyMMdd").parse(id.substring(6, 14));
+    }
+
+    private String parseGenderFromId(String id) {
+        // 17: 偶数 女，奇数 男
+        if (style != null && style.equals("en")) {
+            return id.charAt(16) % 2 == 0 ? "female" : "male";
+        }
+        return id.charAt(16) % 2 == 0 ? "女" : "男";
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
 }

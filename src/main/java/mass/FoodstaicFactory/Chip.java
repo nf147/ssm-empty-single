@@ -1,6 +1,6 @@
 package mass.FoodstaicFactory;
 
-public abstract class Chip  {
+public abstract class Chip {
 
     /**
      * 显示薯条信息

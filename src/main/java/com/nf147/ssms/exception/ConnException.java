@@ -4,6 +4,7 @@ public class ConnException extends RuntimeException {
     public ConnException() {
 
     }
+
     public ConnException(String msg) {
         super(msg);
     }

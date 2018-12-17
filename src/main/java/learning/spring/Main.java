@@ -12,12 +12,12 @@ public class Main {
         DataSource bean = context.getBean(DataSource.class);
     }
 
-    public static void zhuliudeJavaStyle () {
+    public static void zhuliudeJavaStyle() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         context.getBean(BookService.class).sayHello();
     }
 
-    public static void chuantongXMLStyle () {
+    public static void chuantongXMLStyle() {
 
 //        BookServiceImpl bs = new BookServiceImpl();
 //        bs.sayHello();

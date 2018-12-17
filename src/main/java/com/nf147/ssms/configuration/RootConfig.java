@@ -1,8 +1,7 @@
 package com.nf147.ssms.configuration;
 
-import com.nf147.ssms.configuration.misc.MybatisConfig;
-import com.nf147.ssms.configuration.misc.ScheduleConfig;
-import com.nf147.ssms.configuration.misc.ShiroConfig;
+import com.nf147.ssms.configuration.root.MybatisConfig;
+import com.nf147.ssms.configuration.root.ScheduleConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,11 +10,11 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-@Import({ MybatisConfig.class, ShiroConfig.class, ScheduleConfig.class })
+@Import({MybatisConfig.class, ScheduleConfig.class})
 public class RootConfig {
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer sourcesPlaceholderConfigurer () {
+    public static PropertySourcesPlaceholderConfigurer sourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 

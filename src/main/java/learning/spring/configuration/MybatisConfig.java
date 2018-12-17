@@ -29,12 +29,12 @@ public class MybatisConfig {
     private String driver;
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer ppp () {
+    public static PropertySourcesPlaceholderConfigurer ppp() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
     @Bean
-    public DataSource dataSource () throws PropertyVetoException {
+    public DataSource dataSource() throws PropertyVetoException {
         //SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         //PooledDataSource dataSource1 = new PooledDataSource();
 
@@ -49,7 +49,7 @@ public class MybatisConfig {
     }
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactory (DataSource dataSource) throws IOException {
+    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
 

@@ -22,15 +22,15 @@
 
 <form:form action="/book" method="post" modelAttribute="book">
     <div>
-        <form:input path="name" />
-        <form:errors path="name" />
+        <form:input path="name"/>
+        <form:errors path="name"/>
     </div>
     <div>
-        <form:input path="price" />
-        <form:errors path="price" />
+        <form:input path="price"/>
+        <form:errors path="price"/>
     </div>
 
-    <input type="file" name="ufile" />
+    <input type="file" name="ufile"/>
     <input type="submit"/>
 </form:form>
 

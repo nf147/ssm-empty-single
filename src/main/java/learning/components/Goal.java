@@ -70,7 +70,7 @@ public class Goal implements
         System.out.println("zhexingzhgeg.");
     }
 
-    public void xxx () {
+    public void xxx() {
         System.out.println("xxx");
     }
 
@@ -84,7 +84,7 @@ public class Goal implements
 
     }
 
-    public void ddd () {
+    public void ddd() {
 
     }
 }

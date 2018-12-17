@@ -4,7 +4,6 @@ package com.nf147.ssms.controller;
 import com.nf147.ssms.entity.Student;
 import com.nf147.ssms.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +16,10 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-  private  StudentMapper studentMapper;
+    private StudentMapper studentMapper;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home (Model model) {
+    public String home(Model model) {
         List<Student> students = studentMapper.selectAll();
         model.addAttribute("students", students);
         return "home";

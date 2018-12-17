@@ -9,12 +9,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
- @RequestMapping(method = RequestMethod.GET)
- public Person home (@RequestParam(value = "id", required = false) @PersonFromId("en") Person person) {
-     return person;
- }
-
+ * @RequestMapping(method = RequestMethod.GET)
+ * public Person home (@RequestParam(value = "id", required = false) @PersonFromId("en") Person person) {
+ * return person;
+ * }
  */
 
 public class PersonFormatterAnnotationFactory implements AnnotationFormatterFactory<PersonFromId> {

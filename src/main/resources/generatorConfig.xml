@@ -9,7 +9,7 @@
 
 
         <commentGenerator>
-            <property name="suppressDate" value="true" />
+            <property name="suppressDate" value="true"/>
         </commentGenerator>
         <!-- 数据库连接 -->
         <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
@@ -19,13 +19,13 @@
 
         <!-- Model生成规则 -->
         <javaModelGenerator targetPackage="com.nf147.entity" targetProject="src/main/java">
-            <property name="trimStrings" value="true" />
+            <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
         <!-- dao 规则 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.nf147.dao"  targetProject="src/main/java">
-            <property name="enableSubPackages" value="true" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.nf147.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <table tableName="em">
             <generatedKey column="id" sqlStatement="Mysql"/>

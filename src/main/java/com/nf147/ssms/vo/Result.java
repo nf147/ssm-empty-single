@@ -4,7 +4,7 @@ import com.github.pagehelper.Page;
 
 import java.util.List;
 
-public class Result<T>  {
+public class Result<T> {
     private int code;
     private String errMsg;
     private T data;

@@ -50,11 +50,16 @@
 
     var ctx;
 
-    myfile.onchange = () => { // 预览图片
+    myfile.onchange = () =
+    >
+    { // 预览图片
         var imgUrl = URL.createObjectURL(event.target.files[0]);
         myimg.src = imgUrl;
-        myimg.onload = () => URL.revokeObjectURL(imgUrl);
-    };
+        myimg.onload = () =
+    >
+        URL.revokeObjectURL(imgUrl);
+    }
+    ;
 
     function clickMe() {
         compressImgWithCanvas(myfile.files[0], uploadWithAxios);
@@ -113,15 +118,21 @@
             contentType: false,
             data: fd,
             processData: false,
-            xhr: () => {
-                var xhr = $.ajaxSettings.xhr();
-                xhr.upload.onprogress = (ev) => {
-                    refreshProgress(ev.loaded / ev.total);
-                };
-                return xhr;
-            }
-        }).done(console.log)
-            .fail((xhr, staus, err) => console.error(xhr, staus, err));
+            xhr: () = > {
+            var xhr = $.ajaxSettings.xhr();
+        xhr.upload.onprogress = (ev) =
+    >
+        {
+            refreshProgress(ev.loaded / ev.total);
+        }
+        ;
+        return xhr;
+    }
+    }).
+        done(console.log)
+            .fail((xhr, staus, err) = > console.error(xhr, staus, err)
+    )
+        ;
     }
 
     function uploadWithAxios(blob) {
@@ -132,8 +143,9 @@
             method: 'post',
             url: '/myupload',
             data: fd,
-            onUploadProgress: (ev) => refreshProgress(ev.loaded / ev.total),
-        }).then(console.log).catch(console.error);
+            onUploadProgress: (ev) = > refreshProgress(ev.loaded / ev.total),
+    }).
+        then(console.log).catch(console.error);
     }
 
 </script>
