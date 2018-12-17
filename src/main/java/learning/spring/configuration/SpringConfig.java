@@ -8,11 +8,12 @@ import learning.spring.BookServiceImpl;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@ComponentScan(basePackages = "learning.components")
-@Import({ShiroConfig.class, MybatisConfig.class, ScheduleConfig.class})
+//@ComponentScan(basePackages = "learning.components")
+@PropertySource("classpath:application.properties")
+@Import(MybatisConfig.class)
 public class SpringConfig {
     // <bean id="bs1" class="learning.spring.BookServiceImpl" />
-    @Bean
+    @Bean(name = "bs110")
     public BookService bs1() {
         System.out.println(bookDAO());
         if (Math.random() > 0.5) {

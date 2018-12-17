@@ -3,25 +3,30 @@ package learning.spring.configuration;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 
 @Configuration
-@PropertySource("classpath:application.properties")
 public class MybatisConfig {
 
     @Autowired
     Environment env;
+
+    @Value("${jdbc.url}")
+    private String jdbcUrl;
+
+    @Value("${jdbc.driver}")
+    private String driver;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer ppp () {
@@ -34,7 +39,7 @@ public class MybatisConfig {
         //PooledDataSource dataSource1 = new PooledDataSource();
 
         ComboPooledDataSource source = new ComboPooledDataSource();
-        source.setJdbcUrl("${jdbc.url}");
+        source.setJdbcUrl(jdbcUrl);
         source.setDriverClass("${jdbc.driver}");
         source.setUser(env.getProperty("jdbc.user"));
         source.setPassword(env.getProperty("jdbc.password"));
@@ -44,18 +49,16 @@ public class MybatisConfig {
     }
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactory (DataSource dataSource) {
+    public SqlSessionFactoryBean sqlSessionFactory (DataSource dataSource) throws IOException {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
-        bean.setMapperLocations(new Resource[] { new ClassPathResource("classpath:mapper/*.xml") });
+
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        bean.setMapperLocations(resolver.getResources("classpath:mapper/*.class"));
+
         bean.setTypeAliasesPackage("xxx.yy.zzz");
         bean.setDataSource(dataSource);
         return bean;
     }
 
-    @Bean
-    public MapperScannerConfigurer sss () {
-        MapperScannerConfigurer configurer = new MapperScannerConfigurer();
-        return configurer;
-    }
 }
