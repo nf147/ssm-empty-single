@@ -6,10 +6,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.sql.DataSource;
 
+
 public class Main {
+
+
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         DataSource bean = context.getBean(DataSource.class);
+
+
     }
 
     public static void zhuliudeJavaStyle() {
