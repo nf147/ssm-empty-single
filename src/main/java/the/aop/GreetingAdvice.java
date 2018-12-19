@@ -1,6 +1,9 @@
 package the.aop;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -10,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class GreetingAdvice {
 
     @Before("execution(float *.*(..))")
-    public void greeting() {
+    public void greeting(JoinPoint jp) {
         System.out.println("中国人民很行欢迎您 !!!");
     }
 
@@ -19,8 +22,9 @@ public class GreetingAdvice {
         System.out.println("欢迎下次光临。");
     }
 
-    public void goujiao () {
+    @Around("execution(* *.*(..))")
+    public void goujiao (ProceedingJoinPoint jp) {
+        // jp.proceed();
         System.out.println("汪汪!");
     }
-
 }
