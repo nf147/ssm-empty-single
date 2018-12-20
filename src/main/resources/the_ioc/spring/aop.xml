@@ -7,7 +7,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--启用包的扫描-->
-    <context:component-scan base-package="spring_basic.aop.aop"/>
+    <context:component-scan base-package="the.basic.aop.aop"/>
 
 
     <!--切面配置-->
@@ -16,13 +16,13 @@
 
     <!--<bean id="greetingAop" class="GreetingAop" />-->
 
-    <!--<spring_basic.aop:config>-->
-    <!--<spring_basic.aop:aspect ref="greetingAop">-->
-    <!--<spring_basic.aop:before method="greeting" pointcut="execution(void spring_basic.aop.zgrmyh.*.*(..))" />-->
-    <!--<spring_basic.aop:after method="bye" pointcut="execution(void spring_basic.aop.zgrmyh.*.*(..))" />-->
-    <!--<spring_basic.aop:before method="goujiao" pointcut="execution(void spring_basic.aop.animal.*.*(..))" />-->
-    <!--</spring_basic.aop:aspect>-->
-    <!--</spring_basic.aop:config>-->
+    <!--<the.basic.aop:config>-->
+    <!--<the.basic.aop:aspect ref="greetingAop">-->
+    <!--<the.basic.aop:before method="greeting" pointcut="execution(void the.basic.aop.zgrmyh.*.*(..))" />-->
+    <!--<the.basic.aop:after method="bye" pointcut="execution(void the.basic.aop.zgrmyh.*.*(..))" />-->
+    <!--<the.basic.aop:before method="goujiao" pointcut="execution(void the.basic.aop.animal.*.*(..))" />-->
+    <!--</the.basic.aop:aspect>-->
+    <!--</the.basic.aop:config>-->
 
 
     <!--事务配置-->
@@ -31,7 +31,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"/>
 
     <!--2.启用注解-->
-    <!--<tx:annotation-driven spring_basic.aop.proxy-target-class="true" />-->
+    <!--<tx:annotation-driven the.basic.aop.proxy-target-class="true" />-->
 
     <!--2.配置通知-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -43,7 +43,7 @@
 
     <!--3.将通知切入到相应位置-->
     <aop:config>
-        <!--<spring_basic.aop:pointcut id="dbOp" expression="execution(* spring_basic.aop.jdbc_aop.*(..))" />-->
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* spring_basic.aop.jdbc_aop.*(..))"/>
+        <!--<the.basic.aop:pointcut id="dbOp" expression="execution(* the.basic.aop.jdbc_aop.*(..))" />-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* the.basic.aop.jdbc_aop.*(..))"/>
     </aop:config>
 </beans>

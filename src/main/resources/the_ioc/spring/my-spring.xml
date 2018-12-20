@@ -6,25 +6,25 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="spring_basic.ioc.components"/>
+    <context:component-scan base-package="the.basic.ioc.components"/>
 
-    <bean id="bs1" class="spring_basic.ioc.spring.BookServiceImpl">
+    <bean id="bs1" class="the_ioc.spring.BookServiceImpl">
         <property name="bookDAO" ref="bookDAO"/>
     </bean>
 
-    <bean id="bsn" class="spring_basic.ioc.spring.BookServiceImpl" p:bookDAO-ref="bookDAO" scope="prototype"/>
+    <bean id="bsn" class="the_ioc.spring.BookServiceImpl" p:bookDAO-ref="bookDAO" scope="prototype"/>
 
-    <bean id="bs2" class="spring_basic.ioc.spring.BookService2Impl"/>
+    <bean id="bs2" class="the_ioc.spring.BookService2Impl"/>
 
-    <bean id="bookDAO" class="spring_basic.ioc.spring.BookDAO" lazy-init="true"/>
+    <bean id="bookDAO" class="the_ioc.spring.BookDAO" lazy-init="true"/>
 
-    <bean class="spring_basic.ioc.spring.configuration.SpringConfig"/>
+    <bean class="the_ioc.spring.configuration.SpringConfig"/>
 
-    <!--<bean id="bs2" class="spring_basic.ioc.spring.BookServiceImplImpl" />-->
+    <!--<bean id="bs2" class="the.basic.ioc.spring.BookServiceImplImpl" />-->
 
-    <!--<bean id="bs3" class="spring_basic.ioc.spring.BookServiceImplImpl" />-->
+    <!--<bean id="bs3" class="the.basic.ioc.spring.BookServiceImplImpl" />-->
 
-    <bean class="spring_basic.ioc.components.Goal" id="goal">
+    <bean class="the_ioc.components.Goal" id="goal">
         <property name="name" value="多利"/>
         <property name="countOfLegs" value="4"/>
         <property name="aliases">
@@ -51,6 +51,6 @@
     <import resource="disange.xml"/>
     <import resource="disange.xml"/>
 
-    <bean class="spring_basic.ioc.components.AnimalFactory" id="goalmiemie" factory-method="xxx"/>
-    <bean class="spring_basic.ioc.components.AnimalFactory" id="deshui" factory-method="yyy"/>
+    <bean class="the_ioc.components.AnimalFactory" id="goalmiemie" factory-method="xxx"/>
+    <bean class="the_ioc.components.AnimalFactory" id="deshui" factory-method="yyy"/>
 </beans>
