@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 public class MybatisConfig {
 
     @Bean
-    DataSource dataSource (Environment env) {
+    DataSource dataSource(Environment env) {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setPassword(env.getProperty("jdbc.password"));
         return dataSource;

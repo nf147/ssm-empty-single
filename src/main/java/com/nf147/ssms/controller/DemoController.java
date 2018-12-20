@@ -4,7 +4,7 @@ package com.nf147.ssms.controller;
 import com.nf147.ssms.demo_formatter.Person;
 import com.nf147.ssms.demo_formatter.PersonFromId;
 import com.nf147.ssms.service.DemoService;
-import mass.resultDemo.ResultVo;
+import the_mass.resultDemo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -9,7 +9,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @ComponentScan("com.nf147.ssms")
 @PropertySource("classpath:application.properties")
 @EnableAspectJAutoProxy
-@Import({ MybatisConfig.class, ShiroConfig.class
+@Import({MybatisConfig.class, ShiroConfig.class
 })
 public class RootConfig {
     // 全局方面的配置
