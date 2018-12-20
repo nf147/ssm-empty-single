@@ -1,7 +1,7 @@
-package com.nf147.ssms.configuration.root;
+package com.nf147.configuration.root;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ScheduleConfig {
+public class ShiroConfig {
 }
