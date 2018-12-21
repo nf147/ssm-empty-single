@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = "the_template")
 @PropertySource("classpath:application.properties")
-@Import({ JDBCTemplateConfig.class })
+@Import({JDBCTemplateConfig.class})
 public class SpringConfig {
 
 }

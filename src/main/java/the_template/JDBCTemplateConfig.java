@@ -27,17 +27,17 @@ public class JDBCTemplateConfig {
     }
 
     @Bean
-    JdbcTemplate jdbcTemplate (DataSource dataSource) {
+    JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
     @Bean
-    PlatformTransactionManager transactionManager (DataSource dataSource) {
+    PlatformTransactionManager transactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean
-    TransactionTemplate transactionTemplate (PlatformTransactionManager transactionManager) {
+    TransactionTemplate transactionTemplate(PlatformTransactionManager transactionManager) {
         return new TransactionTemplate(transactionManager);
     }
 }

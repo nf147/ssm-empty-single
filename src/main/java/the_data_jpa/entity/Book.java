@@ -1,6 +1,9 @@
 package the_data_jpa.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_book")
@@ -9,7 +12,6 @@ public class Book {
     @GeneratedValue
     private int id;
 
-    @Column(name = "t_name")
     private String name;
     private float price;
 

@@ -35,13 +35,13 @@ public class SpringConfig {
     }
 
     @Bean
-    PlatformTransactionManager transactionManager (DataSource dataSource) {
+    PlatformTransactionManager transactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     // SqlSessionFactory
     @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactory (DataSource dataSource) {
+    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
         bean.setDataSource(dataSource);
         bean.setPackagesToScan("the_data_jpa.entity");
@@ -49,6 +49,8 @@ public class SpringConfig {
 
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.show_sql", "true");
+        properties.setProperty("hibernate.format_sql", "true");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         bean.setJpaProperties(properties);
 
