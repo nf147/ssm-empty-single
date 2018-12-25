@@ -1,4 +1,4 @@
-package the_data_jpa;
+package the_data_jpa.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookServcie {
+public class BookService {
     @Autowired
     private BookDAO bookDAO;
 
