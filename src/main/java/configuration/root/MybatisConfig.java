@@ -1,30 +1,28 @@
 package configuration.root;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 
 @Configuration
-@MapperScan
-@EnableTransactionManagement
+@MapperScan("com.nf147.ssms.mapper")
 public class MybatisConfig {
 
-    @Bean
-    DataSource dataSource(Environment env) {
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setPassword(env.getProperty("jdbc.password"));
-        return dataSource;
+    @Bean("sqlSessionFactoryBean")
+    public SqlSessionFactoryBean sqlSessionFactoryBeanConfig(DataSource dataSource) throws IOException {
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setTypeAliasesPackage("com.nf147.ssms.entity");
+        bean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mapper/*.xml"));
+
+        return bean;
     }
-
-    // SqlSessionFactory
-
-    // MapperScanConf...
-
-    // TransactionalManger
 
 }

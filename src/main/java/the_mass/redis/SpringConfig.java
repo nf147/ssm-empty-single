@@ -20,6 +20,6 @@ public class SpringConfig {
 
     @Bean
     RedisTemplate redisTemplate () {
-        return new StringRedisTemplate();
+        return new StringRedisTemplate(redisFactory());
     }
 }
