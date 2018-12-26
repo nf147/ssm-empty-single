@@ -1,4 +1,4 @@
-package configuration.root;
+package configuration.misc;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;

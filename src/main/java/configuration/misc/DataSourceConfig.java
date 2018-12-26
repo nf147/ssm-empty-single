@@ -1,4 +1,4 @@
-package configuration.root;
+package configuration.misc;
 
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;

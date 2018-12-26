@@ -1,8 +1,8 @@
 package configuration;
 
-import configuration.root.DataSourceConfig;
-import configuration.root.MybatisConfig;
-import configuration.root.ShiroConfig;
+import configuration.misc.DataSourceConfig;
+import configuration.misc.MybatisConfig;
+import configuration.misc.ShiroConfig;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 

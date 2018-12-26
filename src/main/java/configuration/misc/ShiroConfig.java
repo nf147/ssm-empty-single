@@ -1,4 +1,4 @@
-package configuration.root;
+package configuration.misc;
 
 import org.springframework.context.annotation.Configuration;
 
