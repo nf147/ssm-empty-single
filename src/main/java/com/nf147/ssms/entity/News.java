@@ -1,6 +1,9 @@
 package com.nf147.ssms.entity;
 
-public class News {
+import java.io.Serializable;
+
+
+public class News implements Serializable {
     private long id;
     private String title;
     private String body;

@@ -10,4 +10,8 @@
         insert into t_news (title, body) values (#{title}, #{body})
     </insert>
 
+    <select id="getById" resultType="com.nf147.ssms.entity.News">
+        select id, title, body from t_news where id=#{id}
+    </select>
+
 </mapper>
