@@ -2,6 +2,7 @@ package configuration;
 
 import configuration.misc.DataSourceConfig;
 import configuration.misc.MybatisConfig;
+import configuration.misc.RedisConfig;
 import configuration.misc.ShiroConfig;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -16,7 +17,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Import({
         DataSourceConfig.class,
         MybatisConfig.class,
-        ShiroConfig.class
+        ShiroConfig.class,
+        RedisConfig.class
 })
 @PropertySource("classpath:application.properties")
 public class RootConfig {

@@ -27,13 +27,14 @@ public class NewsServiceImplTest {
 
     @Test
     public void getById() {
-        News news = newsService.getNewsById(1);
+        News news = newsService.getNewsById(2);
         System.out.println(news);
     }
 
     @Test
-    public void listNews() throws IOException {
+    public void listNews() throws Exception {
         // System.out.println(newsGson);
+        System.out.println(newsService.listNews());
     }
 
     @Test
@@ -73,12 +74,9 @@ public class NewsServiceImplTest {
                 new News("yuandan", "放假"),
                 new News("春节", "快来了")
         );
-
         FileOutputStream fos = new FileOutputStream(new File("d:/news.class"));
-
         ObjectOutputStream stream = new ObjectOutputStream(fos);
         stream.writeObject(newsList);
-
         stream.close();
     }
 
@@ -105,7 +103,8 @@ public class NewsServiceImplTest {
         oos.close();
 
         // round 2
-        ByteArrayInputStream bri = new ByteArrayInputStream(jedis.get("demo-01".getBytes()));
+        ByteArrayInputStream bri    = new ByteArrayInputStream(jedis.get("demo-01".getBytes()));
+        // ByteArrayInputStream bri = new ByteArrayInputStream(jedis.get("demo-01").getBytes()); // WRONG!
         ObjectInputStream ois = new ObjectInputStream(bri);
         Object o1 = ois.readObject();
         Object o2 = ois.readObject();

@@ -10,4 +10,6 @@ public interface NewsMapper {
     void add(News news);
 
     News getById(long id);
+
+    List<News> listHot();
 }

@@ -14,4 +14,8 @@
         select id, title, body from t_news where id=#{id}
     </select>
 
+    <select id="listHot" resultType="com.nf147.ssms.entity.News">
+        select id, title, body from t_news order by id limit 10
+    </select>
+
 </mapper>

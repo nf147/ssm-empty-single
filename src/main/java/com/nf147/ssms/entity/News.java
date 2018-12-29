@@ -8,6 +8,8 @@ public class News implements Serializable {
     private String title;
     private String body;
 
+    transient private String secret;
+
     public News() {
     }
 
@@ -38,6 +40,14 @@ public class News implements Serializable {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 
     @Override
