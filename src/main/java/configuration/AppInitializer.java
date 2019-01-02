@@ -1,6 +1,7 @@
 package configuration;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
@@ -24,6 +25,8 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     @Override
     protected Filter[] getServletFilters() {
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter("UTF-8");
-        return new Filter[]{encodingFilter};
+        DelegatingFilterProxy shiroFilter = new DelegatingFilterProxy("shiroFilter");
+
+        return new Filter[]{encodingFilter,shiroFilter};
     }
 }

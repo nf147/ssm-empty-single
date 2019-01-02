@@ -17,8 +17,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Import({
         DataSourceConfig.class,
         MybatisConfig.class,
-        ShiroConfig.class,
-        RedisConfig.class
+        RedisConfig.class,
+        ShiroConfig.class
 })
 @PropertySource("classpath:application.properties")
 public class RootConfig {
