@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import javax.servlet.Filter;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @Configuration
 @Import({
@@ -34,6 +36,10 @@ public class ShiroConfig {
         bean.setSuccessUrl("/home");
         bean.setUnauthorizedUrl("/unauth");
 
+        bean.setFilters(new LinkedHashMap<String, Filter>() {{
+            put("jwt", new MyJWTFilter());
+        }});
+
         // 规则设定
         // 基于 url 的规则
         HashMap<String, String> rules = new HashMap<>();
@@ -41,7 +47,7 @@ public class ShiroConfig {
         rules.put("/login", "anon");
         rules.put("/aaa", "anon");
         rules.put("/bbb", "anon");
-        rules.put("/**", "authc");
+        rules.put("/**", "jwt");
         bean.setFilterChainDefinitionMap(rules);
 
         return bean;

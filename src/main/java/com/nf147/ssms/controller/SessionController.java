@@ -1,16 +1,24 @@
 package com.nf147.ssms.controller;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.shiro.subject.Subject;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SessionController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public String login () {
+    @PostMapping(value = "/login")
+    @ResponseBody
+    public String login (String username, String password) {
+        Subject current = SecurityUtils.getSubject();
+        if (!current.isAuthenticated()) {
+            current.login(new UsernamePasswordToken(username, password));
+            // 签发 jwt
+            // 响应给客户端
+
+        }
         return "please input your password.";
     }
 
